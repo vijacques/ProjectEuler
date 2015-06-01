@@ -5,5 +5,5 @@
         current :: rest
     else
         []
-
-List.sum (List.filter (fun x -> x % 2 = 0) (fib 0 1))
+let sumEvenFib x y = List.sum (List.filter (fun x -> x % 2 = 0) (fib x y))
+let result2 = List.sum (List.filter (fun x -> x % 2 = 0) (fib 0 1))
