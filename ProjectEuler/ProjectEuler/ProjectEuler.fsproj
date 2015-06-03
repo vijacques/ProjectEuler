@@ -55,13 +55,6 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="1.fsx" />
-    <None Include="2.fsx" />
-    <None Include="6.fsx" />
-    <None Include="14.fsx" />
-    <None Include="16.fsx" />
-    <None Include="20.fsx" />
-    <None Include="25.fsx" />
     <Content Include="packages.config" />
     <Compile Include="Solutions.fs" />
   </ItemGroup>
