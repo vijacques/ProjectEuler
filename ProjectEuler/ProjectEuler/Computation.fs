@@ -132,3 +132,24 @@ let (>>=) m f = Option.bind f m
 
 let good6 = strToInt "1" >>= strAdd "2" >>= strAdd "3"
 let bad6 = strToInt "1" >>= strAdd "xyz" >>= strAdd "3"
+
+type StringIntBuilder() =
+    member this.Bind(m, f) = 
+        match Int32.TryParse(m) with
+        | false, _ -> "error"
+        | true, i -> f i
+
+    member this.Return(x) =
+        sprintf "%i" x
+
+let stringint = new StringIntBuilder()
+
+let badsi =
+    stringint
+        {
+        let! i = "42"
+        let! j = "xxx"
+        return i + j
+        }
+
+printfn "good = %s" badsi

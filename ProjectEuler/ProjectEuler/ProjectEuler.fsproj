@@ -57,6 +57,7 @@
     <None Include="App.config" />
     <Content Include="packages.config" />
     <Compile Include="Solutions.fs" />
+    <Compile Include="Computation.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsUnit.NUnit">
