@@ -9,6 +9,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ProjectEuler.Tests", "Proje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "Tasks\Tasks.csproj", "{518BE857-32CA-4854-A0C2-B577B87590CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "ConsoleApplication1\Logging.csproj", "{0D708F68-2B24-4220-A5AF-A80E50BD3658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoEventSource", "DemoEventSource\DemoEventSource.csproj", "{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{518BE857-32CA-4854-A0C2-B577B87590CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518BE857-32CA-4854-A0C2-B577B87590CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518BE857-32CA-4854-A0C2-B577B87590CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D708F68-2B24-4220-A5AF-A80E50BD3658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D708F68-2B24-4220-A5AF-A80E50BD3658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D708F68-2B24-4220-A5AF-A80E50BD3658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D708F68-2B24-4220-A5AF-A80E50BD3658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
