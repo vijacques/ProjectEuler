@@ -58,6 +58,7 @@
     <Content Include="packages.config" />
     <Compile Include="Solutions.fs" />
     <Compile Include="Computation.fs" />
+    <Compile Include="Tasks.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsUnit.NUnit">
