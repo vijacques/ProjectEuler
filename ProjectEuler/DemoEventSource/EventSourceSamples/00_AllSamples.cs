@@ -29,10 +29,10 @@ namespace EventSourceSamples
             using (var eventListener = new ConsoleEventListener())
             {
                 MinimalEventSourceDemo.Run(); Debugger.Break();         // Break between demos, Hit F5 to continue. 
-                DynamicEventSourceDemo.Run(); Debugger.Break();
-                CustomizedEventSourceDemo.Run(); Debugger.Break();
-                EventLogEventSourceDemo.Run(); Debugger.Break();
-                LocalizedEventSourceDemo.Run(); Debugger.Break();
+                //DynamicEventSourceDemo.Run(); Debugger.Break();
+                //CustomizedEventSourceDemo.Run(); Debugger.Break();
+                //EventLogEventSourceDemo.Run(); Debugger.Break();
+                //LocalizedEventSourceDemo.Run(); Debugger.Break();
 
                 // We don't run LocalizedEventLogEventSourceDemo by default it will not produce
                 // different results than the non-localized version unless you set your 

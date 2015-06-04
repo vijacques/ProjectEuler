@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "Tasks\Tasks.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoEventSource", "DemoEventSource\DemoEventSource.csproj", "{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaLogger", "AkkaLogger\AkkaLogger.csproj", "{839EC518-30FB-4A18-AAEF-DC9501AA13A8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AkkaFLogger", "AkkaFLogger\AkkaFLogger.fsproj", "{1F19AF02-75D1-49BD-BA7A-20CE61581D09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EED1420-93BA-4A4C-B9A8-F8BFBCC58460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839EC518-30FB-4A18-AAEF-DC9501AA13A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839EC518-30FB-4A18-AAEF-DC9501AA13A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839EC518-30FB-4A18-AAEF-DC9501AA13A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839EC518-30FB-4A18-AAEF-DC9501AA13A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F19AF02-75D1-49BD-BA7A-20CE61581D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F19AF02-75D1-49BD-BA7A-20CE61581D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F19AF02-75D1-49BD-BA7A-20CE61581D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F19AF02-75D1-49BD-BA7A-20CE61581D09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
