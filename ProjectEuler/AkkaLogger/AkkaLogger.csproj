@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ActorEventSource.cs" />
     <Compile Include="Greet.cs" />
+    <Compile Include="GreetingActor.cs" />
     <Compile Include="LoggingActor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

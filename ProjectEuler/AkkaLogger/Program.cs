@@ -1,7 +1,5 @@
 ﻿using Akka.Actor;
-using Akka.Configuration;
 using Akka.Event;
-using System;
 using System.Threading;
 
 namespace AkkaLogger
@@ -17,11 +15,14 @@ namespace AkkaLogger
             // this will be an "ActorRef", which is not a 
             // reference to the actual actor instance
             // but rather a client or proxy to it
-            var greeter = system.ActorOf<LoggingActor>("greeter");
-            greeter.Tell(new InitializeLogger(new LoggingBus()));
-            greeter.Tell(new Greet("World"));
-            greeter.Tell(new Warning(greeter.Path.ToString(), greeter.GetType(), "my first warning!"));
+            var logger = system.ActorOf<LoggingActor>("logger");
+            var greeter = system.ActorOf<GreetingActor>("greeter");
+            
+            logger.Tell(new InitializeLogger(new LoggingBus()));
+            greeter.Tell(new Greet("world"));
 
+            system.Log.Warning("my first warning!");
+            
             //Console.ReadLine();
             Thread.Sleep(2000);
         }
