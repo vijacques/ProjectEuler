@@ -3,10 +3,10 @@ using Microsoft.Diagnostics.Tracing;
 
 namespace AkkaLogger
 {
-    [EventSource(Name = "AkkaLogger.ActorEventSource")]
-    public sealed class ActorEventSource : EventSource
+    [EventSource(Name = "AkkaLogger.AkkaEventSource")]
+    public sealed class AkkaEventSource : EventSource
     {
-        public static ActorEventSource Log = new ActorEventSource();
+        public static AkkaEventSource Log = new AkkaEventSource();
 
         public void Debug(string message)
         {

@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActorEventSource.cs" />
+    <Compile Include="AkkaEventSource.cs" />
     <Compile Include="Greet.cs" />
     <Compile Include="GreetingActor.cs" />
     <Compile Include="LoggingActor.cs" />

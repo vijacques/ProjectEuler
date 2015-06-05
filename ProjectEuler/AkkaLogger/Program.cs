@@ -21,7 +21,8 @@ namespace AkkaLogger
             logger.Tell(new InitializeLogger(new LoggingBus()));
             greeter.Tell(new Greet("world"));
 
-            system.Log.Warning("my first warning!");
+            AkkaEventSource.Log.Warning("my first warning!");
+            system.Log.Warning("my second warning!");
             
             //Console.ReadLine();
             Thread.Sleep(2000);
