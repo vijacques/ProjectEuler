@@ -1,40 +1,35 @@
-﻿using Microsoft.Diagnostics.Tracing;
+﻿using Akka.Event;
+using Microsoft.Diagnostics.Tracing;
 
 namespace AkkaLogger
 {
-    [EventSource(Name = "AkkaLogger.MyApp")]
+    [EventSource(Name = "AkkaLogger.ActorEventSource")]
     public sealed class ActorEventSource : EventSource
     {
         public static ActorEventSource Log = new ActorEventSource();
 
-        public void Load(long ImageBase, string Name)
+        public void Debug(string message)
         {
             if (IsEnabled())
-                WriteEvent(1, ImageBase, Name);
+                WriteEvent(1, message);
         }
 
-        public void Unload(long ImageBase)
+        public void Error(string message)
         {
             if (IsEnabled())
-                WriteEvent(2, ImageBase);
+                WriteEvent(2, message);
         }
 
-        public void ActorEvent(long ImageBase, string Name)
+        public void Info(string message)
         {
             if (IsEnabled())
-                WriteEvent(3, ImageBase, Name);
+                WriteEvent(3, message);
         }
 
-        public void InfoEvent(long ImageBase, string Name)
+        public void Warning(string message)
         {
             if (IsEnabled())
-                WriteEvent(4, ImageBase, Name);
-        }
-
-        public void WarningEvent(long ImageBase, string Name)
-        {
-            if (IsEnabled())
-                WriteEvent(5, ImageBase, Name);
+                WriteEvent(4, message);
         }
     }
 }
