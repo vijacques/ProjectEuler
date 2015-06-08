@@ -3,15 +3,11 @@
 open Akka.FSharp
 open Microsoft.Diagnostics.Tracing
 open System.Threading
+open Akka.Actor
+open Akka.Event
 
 type Message = 
     | Greet of string
-
-type Event = 
-    | Debug of string
-    | Error of string
-    | Info of string
-    | Warning of string
 
 [<EventSource(Name = "AkkaFs", Guid = "{06c2f7ff-69b6-4214-abd5-14ba1c5da651}")>]
 [<Sealed>]
@@ -40,20 +36,38 @@ type AkkaEventSource() =
         if log.IsEnabled() then x.WriteEvent(4, message)
 
 type LoggingActor() = 
-    inherit Actor()
+    inherit UntypedActor()
     override __.OnReceive msg = 
         match msg with
-        | :? Akka.Event.Debug -> AkkaEventSource.Log.Debug(msg.ToString())
-        | :? Akka.Event.Error -> AkkaEventSource.Log.Error(msg.ToString())
-        | :? Akka.Event.Info -> AkkaEventSource.Log.Info(msg.ToString())
-        | :? Akka.Event.Warning -> AkkaEventSource.Log.Warning(msg.ToString())
+        | :? InitializeLogger -> ActorBase.Context.Sender.Tell(LoggerInitialized())
+        | :? Debug -> AkkaEventSource.Log.Debug(msg.ToString())
+        | :? Error -> AkkaEventSource.Log.Error(msg.ToString())
+        | :? Info -> AkkaEventSource.Log.Info(msg.ToString())
+        | :? Warning -> AkkaEventSource.Log.Warning(msg.ToString())
+        | _ -> ignore msg
+
+let config = """
+akka {
+    loggers = ["AkkaFLogger+LoggingActor, AkkaFLogger"]
+    actor.debug.unhandled = on
+    log-config-on-start = on
+    loglevel = "DEBUG"
+            
+    actor {
+        debug {
+            autoreceive = on
+            lifecycle = on
+            fsm = on
+            event-stream = on
+        }
+    }
+}
+"""
 
 [<EntryPoint>]
 let main argv = 
-    let system = System.create "MySistem" (Configuration.load())
+    let system = System.create "MySistem" (Configuration.parse config)
     
-    //    let logger = system.ActorOf<LoggingActor>()
-
     // Use F# computation expression with tail-recursive loop
     // to create an actor message handler and return a reference
     let greeter = 
@@ -67,22 +81,12 @@ let main argv =
                 }
             loop())
     
-    let logger = 
-        spawn system "logger" (fun mailbox -> 
-            let rec loop() = 
-                actor { 
-                    let! msg = mailbox.Receive()
-                    match msg with
-                    | Debug msg -> AkkaEventSource.Log.Debug(msg)
-                    | Error msg -> AkkaEventSource.Log.Error(msg)
-                    | Info msg -> AkkaEventSource.Log.Info(msg)
-                    | Warning msg -> AkkaEventSource.Log.Warning(msg)
-                    return! loop()
-                }
-            loop())
-    
+    let logger = system.ActorOf<LoggingActor>()
+    logger <! new InitializeLogger(new LoggingBus())
+    logger <! new Warning("abc", string.GetType(), "f# warning!!!")
     greeter <! Greet("FSharp World")
-    logger <! Warning("f# warning!!!")
+    system.Log.Warning("teste!@!")
+    system.Log.Info("information 1")
     Thread.Sleep 1000
     //    System.Console.ReadLine() |> ignore
     0 // return an integer exit code
